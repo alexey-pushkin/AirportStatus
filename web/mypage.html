@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en" class="maia-cloud">
+<head>
+
+
+
+
+    <script>var a=window.devsite||{};window.devsite=a;a.readyCallbacks=[];window.devsite.readyCallbacks=a.readyCallbacks;a.ready=function(b){a.readyCallbacks.push(b)};window.devsite.ready=a.ready;
+    </script>
+
+    <meta charset="utf-8">
+
+    <meta name="xsrf_token" content="oudP5G-iOWuTPtGBImRP7ioNZa8Upd-qk2HjHK7g6NA6MTQ2MTA3MTg5MTEyNDMxMA" />
+
+
+    <link rel="canonical" href="https://cloud.google.com/appengine/docs/java/config/webxml">
+
+
+
+
+    <link rel="alternate"
+
+          href="https://cloud.google.com/appengine/docs/java/config/webxml"
+
+          hreflang="en">
+
+
+
+    <link rel="shortcut icon" href="https://cloud.google.com/_static/a1c29df6f1/images/cloud/icons/favicons/favicon.ico">
+
+
+
+
+
+    <link rel="apple-touch-icon" href="https://cloud.google.com/_static/a1c29df6f1/images/apple-touch-icon.png">
+
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,500,500italic,300,300italic' rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="https://cloud.google.com/_static/a1c29df6f1/css/cloud/cloud-docs-default.min.css" />
+
+
+
+
+
+
+
+
+
+
+    <link rel="shortcut icon" href="https://cloud.google.com/_static/a1c29df6f1/images/cloud/icons/favicons/favicon.ico" />
+    <link rel="apple-touch-icon" href="https://cloud.google.com/images/apple-touch-icon.png" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="author" content="Google" href="https://plus.google.com/+googlecloudplatform">
+    <meta name="google-site-verification" content="8dOEM3Xenm6yaBc83y2WKgqQG0iHI7Ph6Rl_YLIZLQ8" />
+
+    <!-- Social  -->
+    <meta name="og:site_name" content="Google Cloud Platform">
+    <meta property="og:image" content="/_static/images/gcp-logo.png" />
+    <meta itemprop="image" content="https://cloud.google.com/_static/images/gcp-logo.png">
+
+    <meta name="twitter:url" content="https://cloud.google.com/appengine/docs/java/config/webxml" />
+    <meta name="twitter:title" content="The Deployment Descriptor: web.xml &mdash; Google Cloud Platform" />
+    <meta name="twitter:image" content="https://cloud.google.com/_static/images/gcp-logo.png" />
+    <meta name="twitter:description" content="None" />
+    <meta name="twitter:creator" content="@googlecloud">
+
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-sanitize.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="/js/base.min.js"></script>
+
+    <!-- Start dataLayer -->
+    <script>
+        window['dataLayer'] = window['dataLayer'] || [];
+        dataLayer.push({
+            'country': '',
+            'region': '',
+
+            'signedIn': 'true',
+            'language': 'ru'
+        });
+    </script>
+
+    <script>
+        window['dataLayer'] = window['dataLayer'] || [];
+        dataLayer.push({
+            'freeTrialEligibleUser': 'true'
+        });
+    </script>
+
+    <!-- End dataLayer -->
+
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://cloud.google.com/_static/a1c29df6f1/js/html5shim/html5.js"></script>
+    <![endif]-->
+
+
+    <meta property="og:site_name" content="Google Cloud Platform">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cloud.google.com/appengine/docs/java/config/webxml">
+    <meta property="og:locale" content="en">
+
+    <script type="text/javascript">
+        var ___gcfg = ___gcfg || {};
+        ___gcfg.lang = 'ru';
+    </script>
+
+    <title>The Deployment Descriptor: web.xml - Java &mdash; Google Cloud Platform</title>
+    <meta property="og:title" content="The Deployment Descriptor: web.xml">
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://cloud.google.com/appengine/css/local_extensions.css">
+
+
+
+</head>
+<body class="  two-column docs normal-width">
+
+<div class="maia-max">
+
+
+
+<div id="maia-header">
+
+    <div class="maia-aux">
+
+
+
+
+
+        <div class="logo-wrapper">
+            <a href="https://cloud.google.com/"><img src="https://cloud.google.com/_static/a1c29df6f1/images/new-gcp-logo.png" srcset="https://cloud.google.com/_static/a1c29df6f1/images/new-gcp-logo_2x.png 2x" alt="Google Cloud Platform"></a>
+        </div>
+
+        <div class="search-container devsite-search">
+            <form action="https://cloud.google.com/s/results" class="maia-search" id="search-wrapper">
+                <div id="searchbox" class="devsite-searchbox">
+                    <input type="text" placeholder="Search this site" class="devsite-search-query" name="q" autocomplete="off">
+                </div>
+                <button id="search-button" class="button button-blue big">
+                    <img src="https://cloud.google.com/_static/a1c29df6f1/images/v2/search.png" alt="Search">
+                </button>
+
+                <input type="hidden" name="p" id="search_project" value="/appengine/docs/java/" data-project-name="Java" data-project-path="/appengine/docs/java/" data-query-match=""/>
+
+
+
+
+
+                <input type="hidden" class="suggest-project" value="Java" />
+
+
+
+
+
+            </form>
+        </div>
+
+        <div id="social-wrapper" class="social">
+  
+    <span class="signed-in">
+      <div>
+          <a href="https://console.cloud.google.com" track-type="navigateTo" track-name="console">My console</a>
+      </div>
+      <img class="avatar" src="https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=40"/>
+    </span>
+
+
+        </div>
+
+        <script>
+            if (window.jQuery) {
+                $(document).ready(function() {
+                    if (window.devsite && window.devsite.search) {
+                        window.devsite.search.init('ru')
+                    }
+                });
+            }
+        </script>
+
+    </div>
+</div>
+
+
+<div itemscope itemtype="http://schema.org/Article">
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="maia-nav-x" class="maia-nav">
+    <div class="maia-aux">
+        <ul>
+
+
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/why-google/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Why Google">Why Google</a>
+
+            </li>
+
+
+            <li
+
+
+                    class=""
+
+
+
+                    >
+                <a href="https://cloud.google.com/products/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Products">Products</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/solutions/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Solutions">Solutions</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/launcher/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Launcher">Launcher</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/pricing/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Pricing">Pricing</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/customers/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Customers">Customers</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/docs/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Documentation">Documentation</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/support/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Support">Support</a>
+
+            </li>
+
+
+            <li
+                    >
+                <a href="https://cloud.google.com/partners/" event="autotrack-data-g" data-g-event="Global Nav" data-g-action="Nav Bar" data-g-label="Partners">Partners</a>
+
+            </li>
+
+
+
+
+        </ul>
+
+
+
+        <div class="cp-cta">
+
+            <a class="track-cloud-event maia-button blue-button" id="try-nav" href="https://console.cloud.google.com/billing/freetrial" track-type="freeTrial" track-name="try" track-metadata-position="nav">Бесплатная пробная версия</a>
+
+
+            <a class="maia-button maia-button-secondary white-button" id="contact-nav" href="https://cloud.google.com/contact/" track-type="sales" track-name="contact" track-metadata-position="nav">Связаться с отделом продаж</a>
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- Products subnav -->
+<div id="maia-nav-x" class="maia-nav products-nav nocontent">
+    <div class="maia-aux">
+        <div class="products-nav-dropdown maia-cols">
+
+            <div id="compute-dropdown" class="products-column maia-col-2">
+
+                <span class="product-list-title">Compute</span>
+
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/compute/">
+                        <span class="product-name">Compute Engine</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/appengine/">
+                        <span class="product-name">App Engine</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/container-engine/">
+                        <span class="product-name">Container Engine</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="storage-dropdown" class="products-column maia-col-2">
+
+                <span class="product-list-title">Storage</span>
+
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/storage/">
+                        <span class="product-name">Storage</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/bigtable/">
+                        <span class="product-name">Bigtable</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/datastore/">
+                        <span class="product-name">Datastore</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/sql/">
+                        <span class="product-name">SQL</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="networking-dropdown" class="products-column maia-col-2">
+
+                <span class="product-list-title">Networking</span>
+
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/virtual-network/">
+                        <span class="product-name">Virtual Networking</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/load-balancing/">
+                        <span class="product-name">Load Balancing</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/dns/">
+                        <span class="product-name">DNS</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/interconnect/">
+                        <span class="product-name">Interconnect</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/cdn/">
+                        <span class="product-name">CDN</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="big-data-dropdown" class="products-column maia-col-2">
+
+                <span class="product-list-title">Big Data</span>
+
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/bigquery/">
+                        <span class="product-name">BigQuery</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/dataflow/">
+                        <span class="product-name">Dataflow</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/dataproc/">
+                        <span class="product-name">Dataproc</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/datalab/">
+                        <span class="product-name">Datalab</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/pubsub/">
+                        <span class="product-name">Pub/Sub</span>
+                    </a>
+                </div>
+            </div>
+            <div id="machine-learning-dropdown" class="products-column maia-col-2">
+                <a href="https://cloud.google.com/products/machine-learning/">
+                    <span class="product-list-title">Machine Learning</span>
+                </a>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/ml/">
+                        <span class="product-name">ML Platform</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/vision/">
+                        <span class="product-name">Vision API</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/speech/">
+                        <span class="product-name">Speech API</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/translate/">
+                        <span class="product-name">Translate API</span>
+                    </a>
+                </div>
+            </div>
+            <div id="other-dropdown" class="products-column maia-col-2">
+
+                <span class="product-list-title">Operations &amp; Tools</span>
+
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/stackdriver/">
+                        <span class="product-name">Stackdriver</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/deployment-manager/">
+                        <span class="product-name">Deployment Manager</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/endpoints/">
+                        <span class="product-name">Endpoints</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/iam/">
+                        <span class="product-name">IAM</span>
+                    </a>
+                </div>
+                <div class="dropdown-item-container">
+                    <a href="https://cloud.google.com/source-repositories/">
+                        <span class="product-name">Source Repositories</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div id="gc-appnav" class="maia-aux">
+    <ol class="breadcrumbs">
+
+        <li><a href="https://cloud.google.com/products/" track-type="navigation"
+               track-name="breadcrumbLink">Продукты</a></li>
+
+        <li><a href="https://cloud.google.com/docs/" track-type="navigation"
+               track-name="breadcrumbLink">Documentation</a></li>
+
+        <li><a href="https://cloud.google.com/appengine/docs" track-type="navigation"
+               track-name="breadcrumbLink">App Engine</a></li>
+
+        <li><a href="https://cloud.google.com/appengine/docs/java" track-type="navigation"
+               track-name="breadcrumbLink">Java</a></li>
+
+    </ol>
+</div>
+
+
+
+
+
+
+<div class="maia-aux" id="gc-appbar">
+
+
+
+
+
+    <a href="https://cloud.google.com/appengine/docs/java" class="gc-appbar-title"
+       track-type="navigation" track-name="docTitleLink">
+        Java
+    </a>
+
+
+
+
+
+
+
+
+
+    <div class="devsite-rating-container ">
+        <div class="devsite-rating-stars">
+            <div data-rating-val="1" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                 class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                 data-label="Star Rating 1" track-type="feedback" track-name="rating"
+                 track-metadata-score="1" track-metadata-position="header"></div>
+            <div data-rating-val="2" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                 class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                 data-label="Star Rating 2" track-type="feedback" track-name="rating"
+                 track-metadata-score="2" track-metadata-position="header"></div>
+            <div data-rating-val="3" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                 class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                 data-label="Star Rating 3" track-type="feedback" track-name="rating"
+                 track-metadata-score="3" track-metadata-position="header"></div>
+            <div data-rating-val="4" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                 class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                 data-label="Star Rating 4" track-type="feedback" track-name="rating"
+                 track-metadata-score="4" track-metadata-position="header"></div>
+            <div data-rating-val="5" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                 class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                 data-label="Star Rating 5" track-type="feedback" track-name="rating"
+                 track-metadata-score="5" track-metadata-position="header"></div>
+        </div>
+
+        <div class="devsite-rating-description">Оцените эту страницу</div>
+        <div class="devsite-rating-internal"><span class="devsite-rating-stats"></span></div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            devsite.ratings.init(
+                    document.querySelectorAll('#devsite-feedback-project'),
+                    false
+
+            );
+        });
+    </script>
+
+
+
+
+    <div id="devsite-feedback-box">
+        <div class="devsite-feedback-dropcloth" style="display:none"></div>
+        <div class="devsite-feedback-step1" style="display:none">
+
+            <p>Оставить отзыв о...
+        <span class="devsite-feedback-cancel gc-analytics-event"
+              data-category="Site-Wide Custom Events"
+              data-label="Cancel Feedback Button" track-type="feedback"
+              track-name="cancelFeedbackButton" track-metadata-position="header"
+                ></span>
+            </p>
+            <div class="devsite-feedback-table">
+                <div class="devsite-feedback-row">
+                    <div class="devsite-feedback-cell">
+                        <a data-type="documentation"  class="gc-analytics-event"
+                           data-category="Site-Wide Custom Events"
+                           data-label="Docs Feedback Image" track-type="feedback"
+                           track-name="feedbackDocIcon" track-metadata-position="header">
+                            <img src="https://cloud.google.com/_static/a1c29df6f1/images/feedback/doc_feedback_56px.svg">
+                        </a>
+                        <br>
+
+                        Текущей странице
+                        <br>
+                        <a data-type="documentation"  class="gc-analytics-event"
+                           data-category="Site-Wide Custom Events"
+                           data-label="Docs Feedback Text" track-type="feedback"
+                           track-name="feedbackDocText" track-metadata-position="header">
+
+                            Документации</a>
+                    </div>
+                    <div class="devsite-feedback-cell">
+                        <a data-type="product" class="gc-analytics-event"
+                           data-category="Site-Wide Custom Events"
+                           data-label="Product Feedback Image" track-type="feedback"
+                           track-name="feedbackProductIcon" track-metadata-position="header"
+                                >
+
+                            <img src="https://cloud.google.com/_static/a1c29df6f1/images/feedback/google_56px.svg">
+
+                        </a>
+                        <br>
+                        Java
+                        <br>
+                        <a data-type="product" class="gc-analytics-event"
+                           data-category="Site-Wide Custom Events"
+                           data-label="Product Feedback Text" track-type="feedback"
+                           track-name="feedbackProductText" track-metadata-position="header"
+                                >
+
+                            Продуктах</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="google-feedback-container ">
+        <a id='devsite-feedback-project' class="google-feedback gc-analytics-event"
+           data-category="Site-Wide Custom Events" data-label="Send Feedback Button"
+           track-type="feedback" track-name="sendFeedbackLink"
+           track-metadata-position="header">
+
+            Отправить отзыв</a>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            new devsite.feedback.Widget({
+                        'product_id': '70425',
+                        'bucket': 'Documentation',
+                        'context': '',
+                        'version': 'devsite-20160415-r00-rc02.default'
+                    },
+                    document.querySelectorAll('#devsite-feedback-project'),
+                    'ru',
+                    document.querySelector('#devsite-feedback-box .devsite-feedback-dropcloth'),
+                    document.querySelector('#devsite-feedback-box .devsite-feedback-step1'),
+                    document.querySelector('#devsite-feedback-box .devsite-feedback-cancel'),
+                    document.querySelectorAll('#devsite-feedback-box .devsite-feedback-cell a:not([href])')
+            );
+        });
+    </script>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+<div id="maia-main" class="main">
+
+
+
+
+
+
+<div id="gc-sidebar" class="wide">
+
+
+    <nav class="devsite-section-nav devsite-nav gc-toc"><ul class="devsite-nav-expandable"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">App Engine Docs</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Quickstarts</span></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Hello, World! in 5 minutes</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Creating a Guestbook</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/introduction" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1. Introduction</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/setup" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2. Tutorial Setup</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/creating" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">3. Creating the Project</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/ui_and_code" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">4. Adding Code and UI</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/usingdatastore" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">5. Storing Data</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/uploading" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">6. Uploading Your Application</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Guides</span></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Developing Java Apps on App Engine</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/downloads#Google_App_Engine_SDK_for_Java" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Install the App Engine SDK for Java</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Testing and Debugging</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/devserver" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using the Local Development Server</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Local Unit Testing</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/localunittesting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Local Unit Testing Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/localunittesting/javadoc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Local Unit Testing Javadoc</a></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Monitoring Your App</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/trace/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Monitoring Latency with Stackdriver Trace</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/capabilities" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Detecting Outages and Downtime with the Capabilities API</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/monitoring/docs" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring Dashboards and Alerts with Cloud Monitoring</a></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Managing and Configuring Your App</span><a class="devsite-nav-toggle devsite-nav-toggle-expanded material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-expanded"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/uploadinganapp" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Uploading and Managing Your App</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/console/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using the Google Cloud Platform Console</a></li><li class="devsite-nav-item devsite-nav-custom devsite-nav-has-status"><a href="https://cloud.google.com/appengine/docs/java/console/access-control" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Managing Access Control<span class="devsite-nav-status">Beta</span></a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/console/using-custom-domains-and-ssl" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Custom Domains and SSL</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/console/managing-resources" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Managing App Resources</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/google-analytics" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Integrating with Google Analytics</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/config/appconfig" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring Your App With appengine-web.xml</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/config/dos" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring DoS protection with dos.xml</a></li><li class="devsite-nav-item devsite-nav-active"><a href="https://cloud.google.com/appengine/docs/java/config/webxml" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring Your Deployments with web.xml</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/admin-api/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Programatically Managing Your App</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Configuring Your Java App with YAML Files</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/configyaml/backends" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Backends Config</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/configyaml/indexconfig" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Index Config</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/configyaml/cron" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Scheduled Tasks</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/configyaml/queue" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Task Queue Config</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/configyaml/dos" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">DoS Protection Config</a></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://cloud.google.com/appengine/docs/java/storage" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Storing Data</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/storage" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Storing Data Overview</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Google Cloud Datastore</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Google Cloud Datastore Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/entities" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Entities, Properties, and Keys</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/queries" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Datastore Queries</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/geosearch" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Geospatial Queries</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/projectionqueries" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Projection Queries</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/indexes" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Datastore Indexes</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/transactions" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Datastore Transactions</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/structuring_for_strong_consistency" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Structuring Data for Strong Consistency</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/metadataqueries" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Metadata</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/stats" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Datastore Statistics</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/async" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Async Datastore API</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/callbacks" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Datastore Callbacks</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/console/datastoreadmin" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Backing up, Restoring, Copying, and Deleting from Datastore</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/config/indexconfig" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring Your Datastore Indexes With datastore-indexes.xml</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/cloud-sql/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Google Cloud SQL</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Google Cloud Storage</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/googlecloudstorageclient/using-cloud-storage" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Cloud Storage</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/googlecloudstorageclient/understanding-storage-features" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Understanding Cloud Storage Features</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/googlecloudstorageclient/sample-deploy-run" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Deploying and Running the Sample</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Superseded Storage Solutions</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Blobstore</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/blobstore" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Blobstore Overview</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">JDO for Cloud Datastore</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/overview" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Overview (JDO 2.3)</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/overview-dn2" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Overview (JDO 3.0)</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/dataclasses" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Defining Data Classes with JDO</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/creatinggettinganddeletingdata" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Creating, Getting, and Deleting Data in JDO</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/relationships" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Entity Relationships in JDO</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jdo/queries" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Queries in JDO</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">JPA for Cloud Datastore</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jpa/overview" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Overview (JPA 1.0)</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/datastore/jpa/overview-dn2" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Overview (JPA 2.0)</a></li></ul></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Authenticating Users</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/oauth" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Authenticating Users with OAuth</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/users" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Authenticating Google Accounts</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Caching Application Data</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/memcache" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Memcache API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/memcache/usingjcache" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using JCache</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Connecting to and from Your App</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Issuing HTTP(S) Requests</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/urlfetch" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">URL Fetch API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/appidentity" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Identifying Your App to APIs and Services</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/urlfetch/usingjavanet" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using java.net</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/sockets" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Sockets</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Creating a Persistent Connection for JavaScript Clients</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/channel" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Channel API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/channel/javascript" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Client JavaScript Reference</a></li></ul></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/images" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Manipulating Images</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Mobile Backends</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/tools/android-studio/app_engine/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">App Engine Support in Android Studio</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Google Cloud Endpoints</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Google Cloud Endpoints Overview</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Getting Started</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Getting Started Overview</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="3">Backend API Tutorial</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="3"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/backend" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1. Introduction</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/backend/setup" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2. Setup</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/backend/hello_world" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">3. Hello World</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/backend/helloendpoints" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">4. A More Complete Backend API</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/backend/code_walkthrough" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">5. Code Walkthrough</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="3">Web Client Tutorial</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="3"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">1. Introduction</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js/setup" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">2. Setup</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js/client_ui" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">3. Adding the Client UI</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js/add_javascript" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">4. Adding the Javascript</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js/add_post" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">5. Adding a Simple POST</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/js/add_auth" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">6. Adding a Request Using OAuth</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/getstarted/clients/android" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Android Client Sample</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Coding the API</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/annotations" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Annotating Your Code</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/multiclass" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Implementing a Multiclass API</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/auth" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Authentication</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/required_files" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Required Files and Configuration</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/paramreturn_types" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Parameters and Return Types</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/exceptions" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Exceptions and HTTP</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/javadoc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Javadoc Reference</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/test_deploy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Testing and Deploying</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Generating Client Libraries</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/gen_clients" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Generating Client Libraries</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/endpoints_tool" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using the Endpoints Command Line Tool</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Using Endpoints in Clients</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/consume_js" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">JavaScript Client</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/consume_android" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Android Client</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/endpoints/consume_ios" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">IOS Client</a></li></ul></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Namespace-enabled Apps</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/multitenancy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Namespaces API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/multitenancy/multitenancy" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Multitenancy with Namespaces</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Sending Email</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Using the App Engine Mail API</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Mail API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail/usingjavamail" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sending Mail with JavaMail</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail/receiving" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Receiving Mail</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail/bounce" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Receiving Bounce Notification</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail/sendgrid" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sending Email with SendGrid</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/mail/mailgun" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sending Email with Mailgun</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Sending and Receiving Chat and SMS Messages</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/xmpp" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sending and Receiving Chat Messages</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/sms/twilio" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">SMS and Voice Services via Twilio</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Scheduling Work Outside of User Requests</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/config/cron" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Scheduling Jobs with cron.xml</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Task Queue API</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Task Queue API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/config/queue" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Configuring Task Queues with queue.xml</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/overview-push" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Push Queues</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/overview-pull" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Pull Queues</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable devsite-nav-custom devsite-nav-has-status"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="2">Task Queue REST API<span class="devsite-nav-status">Alpha</span></span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="2"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Task Queue REST API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/about_auth" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">About Authorization</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/libraries" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Downloads</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/performance" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Performance Tips</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/parameters" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Standard Parameters</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/taskqueues" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Taskqueues</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="3"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/taskqueues/get" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">get</a></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="3" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Tasks</a><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="3"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/delete" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">delete</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/get" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">get</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/insert" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">insert</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/lease" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">lease</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/list" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">list</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/patch" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">patch</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/taskqueue/rest/tasks/update" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="4" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">update</a></li></ul></li></ul></li></ul></li></ul></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Searchable Document Indexes</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Documents and Indexes</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/query_strings" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Query Strings</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/options" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Query and Sorting Options</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/results" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Handling Search Results</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/faceted_search" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Faceted Search</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/best_practices" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Best Practices</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/search/devserver" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using the Java Development Server</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/logs" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Reading and Writing Logs</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/modules/converting" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Converting Backends to Modules</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">APIs &amp; Reference</span></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/javadoc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Java App Engine API Reference</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/jrewhitelist" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">JRE Class White List</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Development Tools</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://developers.google.com/eclipse/docs/appengine" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Google Plugin for Eclipse</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/maven" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Apache Maven</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/ant" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using Apache Ant</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/webtoolsplatform" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Using the Web Tools Platform</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/appstats" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Appstats</a></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="1">Remote API</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="1"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/remoteapi" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Remote API Overview</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/remoteapi/javadoc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="2" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Remote API Javadoc</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/tools/javadoc" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Tools Javadoc</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/glossary" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Glossary</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Concepts</span></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/modules" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">An Overview of App Engine</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/runtime" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">The Java Runtime Environment</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/requests" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">How Requests are Handled</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/modules/routing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">How Requests are Routed</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/scaling" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">How Apps Scale</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Sample Code</span></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/samples" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Sample Applications</a></li><li class="devsite-nav-item devsite-nav-item-heading"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Resources</span></li><li class="devsite-nav-item devsite-nav-item-section-expandable"><span class="devsite-nav-title devsite-nav-title-no-path" track-type="leftNav" track-name="expandNavSectionNoLink" track-metadata-position="0">Pricing and Quotas</span><a class="devsite-nav-toggle devsite-nav-toggle-collapsed material-icons" track-type="leftNav" track-name="expandNavSectionArrow" track-metadata-position="0"></a><ul class="devsite-nav-section devsite-nav-section-collapsed"><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/pricing" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Pricing</a></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/quotas" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="1" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Quotas</a></li></ul></li><li class="devsite-nav-item"><a href="https://cloud.google.com/appengine/docs/java/release-notes" class="devsite-nav-title gc-analytics-event" track-type="leftNav" track-name="titleLink" track-metadata-position="0" data-category="Site-Wide Custom Events" data-label="Left nav" data-action="click">Release Notes</a></li></ul></nav>
+
+
+</div>
+
+
+<div id="gc-content"
+
+     class="wide-sidebar"
+        >
+
+<div>
+
+
+
+<h1 itemprop="name" class="page-title" >The Deployment Descriptor: web.xml</h1>
+
+<div itemprop="articleBody">
+
+
+
+<p>Java web applications use a deployment descriptor file to determine how URLs map to servlets, which URLs require authentication, and other information. This file is named <code>web.xml</code>, and resides in the app's WAR under the <code>WEB-INF/</code> directory. <code>web.xml</code> is part of the servlet standard for web applications.</p>
+
+<p>For more information about the <code>web.xml</code> standard, see <a href="http://wiki.metawerx.net/wiki/Web.xml">the Metawerx web.xml reference wiki</a> and <a href="http://jcp.org/aboutJava/communityprocess/final/jsr154/index.html">the Servlet specification</a>.</p>
+
+<ol class="toc">
+    <li><a href="#About_Deployment_Descriptors">About Deployment Descriptors</a></li>
+    <li><a href="#Servlets_and_URL_Paths">Servlets and URL Paths</a></li>
+    <li><a href="#JSPs">JSPs</a></li>
+    <li><a href="#Security_and_Authentication">Security and Authentication</a></li>
+    <li><a href="#Secure_URLs">Secure URLs</a></li>
+    <li><a href="#The_Welcome_File_List">The Welcome File List</a></li>
+    <li><a href="#Filters">Filters</a></li>
+    <li><a href="#Error_Handlers">Error Handlers</a></li>
+    <li><a href="#web_xml_Features_Not_Supported">web.xml Features Not Supported</a></li>
+</ol>
+
+
+<h2 id="About_Deployment_Descriptors">About Deployment Descriptors</h2>
+
+<p>A web application's deployment descriptor describes the classes, resources and configuration of the application and how the web server uses them to serve web requests. When the web server receives a request for the application, it uses the deployment descriptor to map the URL of the request to the code that ought to handle the request.</p>
+
+<p>The deployment descriptor is a file named <code>web.xml</code>. It resides in the app's WAR under the <code>WEB-INF/</code> directory. The file is an XML file whose root element is <code>&lt;web-app&gt;</code>.</p>
+
+<p>Here is a simple <code>web.xml</code> example that maps all URL paths (<code>/*</code>) to the servlet class <code>mysite.server.ComingSoonServlet</code>:</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">&lt;web-app xmlns=&quot;http://java.sun.com/xml/ns/javaee&quot; version=&quot;2.5&quot;&gt;
+    &lt;servlet&gt;
+    &lt;servlet-name&gt;comingsoon&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;mysite.server.ComingSoonServlet&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+    &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;comingsoon&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;</code>
+<code class="language-xml">&lt;/web-app&gt;</code>
+</pre>
+
+<p class="note"><b>Note:</b> If you factor your application into Modules you will
+    need to specify additional configuration parameters for each module. These are
+    described in the <a href="https://cloud.google.com/appengine/docs/java/modules/#Java_Configuration">Modules</a>
+    documentation.</p>
+
+<h2 id="Servlets_and_URL_Paths">Servlets and URL Paths</h2>
+
+<p><code>web.xml</code> defines mappings between URL paths and the servlets that handle requests with those paths. The web server uses this configuration to identify the servlet to handle a given request and call the class method that corresponds to the request method (e.g. the <code>doGet()</code> method for HTTP GET requests).</p>
+
+<p>To map a URL to a servlet, you declare the servlet with the <code>&lt;servlet&gt;</code> element, then define a mapping from a URL path to a servlet declaration with the <code>&lt;servlet-mapping&gt;</code> element.</p>
+
+<p>The <code>&lt;servlet&gt;</code> element declares the servlet, including a name used to refer to the servlet by other elements in the file, the class to use for the servlet, and initialization parameters. You can declare multiple servlets using the same class with different initialization parameters. The name for each servlet must be unique across the deployment descriptor.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;servlet&gt;
+    &lt;servlet-name&gt;redteam&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;mysite.server.TeamServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+    &lt;param-name&gt;teamColor&lt;/param-name&gt;
+    &lt;param-value&gt;red&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+    &lt;param-name&gt;bgColor&lt;/param-name&gt;
+    &lt;param-value&gt;#CC0000&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet&gt;
+    &lt;servlet-name&gt;blueteam&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;mysite.server.TeamServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+    &lt;param-name&gt;teamColor&lt;/param-name&gt;
+    &lt;param-value&gt;blue&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+    &lt;param-name&gt;bgColor&lt;/param-name&gt;
+    &lt;param-value&gt;#0000CC&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;/servlet&gt;</code>
+</pre>
+
+<p>The <code>&lt;servlet-mapping&gt;</code> element specifies a URL pattern and the name of a declared servlet to use for requests whose URL matches the pattern. The URL pattern can use an asterisk (<code>*</code>) at the beginning or end of the pattern to indicate zero or more of any character. (The standard does not support wildcards in the middle of a string, and does not allow multiple wildcards in one pattern.)  The pattern matches the full path of the URL, starting with and including the forward slash (<code>/</code>) following the domain name.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;redteam&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/red/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;
+
+    &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;blueteam&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/blue/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;</code>
+</pre>
+
+<p>With this example, a request for the URL <code>http://www.example.com/blue/teamProfile</code> is handled by the TeamServlet class, with the <code>teamColor</code> parameter equal to <code>blue</code> and the <code>bgColor</code> parameter equal to <code>#0000CC</code>. The servlet can get the portion of the URL path matched by the wildcard using the ServletRequest object's <code>getPathInfo()</code> method.</p>
+
+<p class="note"><b>Note:</b> Static files, files that are served verbatim to users such as images, CSS or JavaScript, are handled separately from paths mentioned in the deployment descriptor. A request for a URL path that matches a path to a file in the WAR that's considered a static file will serve the file, regardless of servlet and filter mappings in the deployment descriptor. You can exclude files from those treated as static files using the <a href="https://cloud.google.com/appengine/docs/java/config/appconfig">appengine-web.xml</a> file.</p>
+
+<p>The servlet can access its initialization parameters by getting its servlet configuration using its own <code>getServletConfig()</code> method, then calling the <code>getInitParameter()</code> method on the configuration object using the name of the parameter as an argument.</p>
+
+<pre class="prettyprint">
+        String teamColor = getServletConfig().getInitParameter("teamColor");</pre>
+
+
+<h2 id="JSPs">JSPs</h2>
+
+<p>An app can use JavaServer Pages (JSPs) to implement web pages. JSPs are servlets defined using static content (such as HTML) mixed with Java code.</p>
+
+<p>App Engine supports automatic compilation and URL mapping for JSPs. A JSP file in the application's WAR (outside of <code>WEB-INF/</code>) whose filename ends in <code>.jsp</code> is compiled into a servlet class automatically, and mapped to the URL path equivalent to the path to the JSP file from the WAR root. For example, if an app has a JSP file named <code>start.jsp</code> in a subdirectory named <code>register/</code> in its WAR, App Engine compiles it and maps it to the URL path <code>/register/start.jsp</code>.</p>
+
+<p>If you want more control over how the JSP is mapped to a URL, you can specify the mapping explicitly by declaring it with a <code>&lt;servlet&gt;</code> element in the deployment descriptor. Instead of a <code>&lt;servlet-class&gt;</code> element, you specify a <code>&lt;jsp-file&gt;</code> element with the path to the JSP file from the WAR root. The <code>&lt;servlet&gt;</code> element for the JSP can contain initialization parameters.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;servlet&gt;
+    &lt;servlet-name&gt;register&lt;/servlet-name&gt;
+    &lt;jsp-file&gt;/register/start.jsp&lt;/jsp-file&gt;
+    &lt;/servlet&gt;
+
+    &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;register&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/register/*&lt;/url-pattern&gt;
+    &lt;/servlet-mapping&gt;</code>
+</pre>
+
+<p class="note"><b>Note:</b> The <code>&lt;jsp-file&gt;</code> must start with a forward slash (<code>/</code>) if the JSP is in the application's root directory.</p>
+
+<p>You can install JSP tag libraries with the <code>&lt;taglib&gt;</code> element. A tag library has a path to the JSP Tag Library Descriptor (TLD) file (<code>&lt;taglib-location&gt;</code>) and a URI that JSPs use to select the library for loading (<code>&lt;taglib-uri&gt;</code>). Note that App Engine provides the <a href="http://java.sun.com/products/jsp/jstl/">JavaServer Pages Standard Tag Library</a> (JSTL), and you do not need to install it.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;taglib&gt;
+    &lt;taglib-uri&gt;/escape&lt;/taglib-uri&gt;
+    &lt;taglib-location&gt;/WEB-INF/escape-tags.tld&lt;/taglib-location&gt;
+    &lt;/taglib&gt;</code>
+</pre>
+
+
+<h2 id="Security_and_Authentication">Security and Authentication</h2>
+
+<p>An App Engine application can use Google Accounts for user authentication. The app can use <a href="https://cloud.google.com/appengine/docs/java/users">the Google Accounts API</a> to detect whether the user is signed in, get the currently signed-in user's email address, and generate sign-in and sign-out URLs. An app can also specify access restrictions for URL paths based on Google Accounts, using the deployment descriptor.</p>
+
+<p>The <code>&lt;security-constraint&gt;</code> element defines a security constraint for URLs that match a pattern. If a user accesses a URL whose path has a security constraint and the user is not signed in, App Engine redirects the user to the Google Accounts sign-in page. Google Accounts redirects the user back to the application URL after successfully signing in or registering a new account. The app does not need to do anything else to ensure that only signed-in users can access the URL.</p>
+
+<p>A security constraint includes an authorization constraint that specifies which Google Accounts users can access the path. If the authorization constraint specifies a user role of <code>*</code>, then any users signed in with a Google Account can access the URL. If the constraint specifies a user role of <code>admin</code>, then only registered developers of the application can access the URL. The <code>admin</code> role makes it easy to build administrator-only sections of your site.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;security-constraint&gt;
+    &lt;web-resource-collection&gt;
+    &lt;web-resource-name&gt;profile&lt;/web-resource-name&gt;
+    &lt;url-pattern&gt;/profile/*&lt;/url-pattern&gt;
+    &lt;/web-resource-collection&gt;
+    &lt;auth-constraint&gt;
+    &lt;role-name&gt;*&lt;/role-name&gt;
+    &lt;/auth-constraint&gt;
+    &lt;/security-constraint&gt;
+
+    &lt;security-constraint&gt;
+    &lt;web-resource-collection&gt;
+    &lt;web-resource-name&gt;admin&lt;/web-resource-name&gt;
+    &lt;url-pattern&gt;/admin/*&lt;/url-pattern&gt;
+    &lt;/web-resource-collection&gt;
+    &lt;auth-constraint&gt;
+    &lt;role-name&gt;admin&lt;/role-name&gt;
+    &lt;/auth-constraint&gt;
+    &lt;/security-constraint&gt;</code>
+</pre>
+
+<p class="note"><strong>Note:</strong> Google Apps domain administrators and App Engine domain administrators are not included in the <code>admin</code> role in this context. Only the application developers, such as those in Viewer/Owner/Developer roles, can access these portions of the application.</p>
+
+<p>App Engine does not support custom security roles (<code>&lt;security-role&gt;</code>) or alternate authentication mechanisms (<code>&lt;login-config&gt;</code>) in the deployment descriptor.</p>
+
+<p>Security constraints apply to static files as well as servlets.</p>
+
+
+<h2 id="Secure_URLs">Secure URLs</h2>
+
+<p>Google App Engine supports secure connections via HTTPS for URLs using the
+    <code>*.appspot.com</code> domain.
+    When a request accesses a URL using HTTPS, and that URL is configured to
+    use HTTPS in the <code>web.xml</code> file, both the request data and the
+    response data are encrypted by the sender before they are transmitted,
+    and decrypted by the recipient after they are received.
+    Secure connections are useful for protecting customer data,
+    such as contact information, passwords, and private messages.</p>
+
+<p class="note"><b>Note:</b> To use Google Apps domains with HTTPS, you must
+    first <a href="https://cloud.google.com/appengine/docs/ssl">activate and configure SSL for App Engine
+        with your domain</a>. Otherwise, users attempting to view pages via https on
+    your domain will likely see timeouts, errors, or warnings.
+
+<p>To declare that HTTPS should be used for a URL, you set up a security constraint in the deployment descriptor (as described in <a href="#Security_and_Authentication">Security and Authentication</a>) with a <code>&lt;user-data-constraint&gt;</code> whose <code>&lt;transport-guarantee&gt;</code> is <code>CONFIDENTIAL</code>, as follows:</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;security-constraint&gt;
+    &lt;web-resource-collection&gt;
+    &lt;web-resource-name&gt;profile&lt;/web-resource-name&gt;
+    &lt;url-pattern&gt;/profile/*&lt;/url-pattern&gt;
+    &lt;/web-resource-collection&gt;
+    &lt;user-data-constraint&gt;
+    &lt;transport-guarantee&gt;CONFIDENTIAL&lt;/transport-guarantee&gt;
+    &lt;/user-data-constraint&gt;
+    &lt;/security-constraint&gt;</code>
+</pre>
+
+<p>Requests using HTTP (non-secure) for URLs whose transport guarantee is <code>CONFIDENTIAL</code> are automatically redirected to the same URL using HTTPS.</p>
+
+<p>Any URL can use the <code>CONFIDENTIAL</code> transport guarantee, including JSPs and static files.</p>
+
+<p>The development web server does not support HTTPS connections. It ignores the transport guarantee, so paths intended for use with HTTPS can be tested using regular HTTP connections to the development web server.</p>
+
+<p>When you test your app's HTTPS handlers using the versioned appspot.com URL, such as <code>https://1.latest.<i>your_app_id</i>.appspot.com/</code>, your browser warns you that the HTTPS certificate was not signed for that specific domain path. If you accept the certificate for that domain, pages will load successfully. Users will not see the certificate warning when accessing <code>https://<i>your_app_id</i>.appspot.com/</code>.</p>
+
+<p>You can also use an alternate form of the versioned appspot.com URL designed to avoid this problem by replacing the periods separating the subdomain components with the string "<code>-dot-</code>". For instance, the previous example could be accessed without a certificate warning at <code>https://1-dot-latest-dot-<i>your_app_id</i>.appspot.com/</code>.</p>
+
+<p>Google Accounts sign-in and sign-out are always performed using a secure connection, unrelated to how the application's URLs are configured.</p>
+
+<p>As mentioned above, security constraints apply to static files as well as servlets. This includes the transport guarantee.</p>
+
+<p class="note"><b>Note:</b> After April 2013 Google does not issue SSL certificates for
+    double-wildcard domains hosted at <code>appspot.com</code> (i.e. <code>*.*.appspot.com</code>). If
+    you rely on such URLs for HTTPS access to your application, change any application logic to
+    use "<code>-dot-</code>" instead of "<code>.</code>". For example, to access version v1 of application myapp use
+    <code>https://v1-dot-myapp.appspot.com</code>. The certificate will not match if you use
+    <code>https://v1.myapp.appspot.com</code>, and an error occurs for any
+    User-Agent that expects the URL and certificate to match exactly.</p>
+
+
+<h2 id="The_Welcome_File_List">The Welcome File List</h2>
+
+<p>When the URLs for your site represent paths to static files or JSPs in your WAR, it is often a good idea for paths to directories to do something useful as well. A user visiting the URL path <code>/help/accounts/password.jsp</code> for information on account passwords may try to visit <code>/help/accounts/</code> to find a page introducing the account system documentation. The deployment descriptor can specify a list of filenames that the server should try when the user accesses a path that represents a WAR subdirectory (that is not already explicitly mapped to a servlet). The servlet standard calls this the "welcome file list."</p>
+
+<p>For example, if the user accesses the URL path <code>/help/accounts/</code>, the following <code>&lt;welcome-file-list&gt;</code> element in the deployment descriptor tells the server to check for <code>help/accounts/index.jsp</code> and <code>help/accounts/index.html</code> before reporting that the URL does not exist:</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;welcome-file-list&gt;
+    &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;
+    &lt;welcome-file&gt;index.html&lt;/welcome-file&gt;
+    &lt;/welcome-file-list&gt;</code>
+</pre>
+
+
+<h2 id="Filters">Filters</h2>
+
+<p>A <i>filter</i> is a class that acts on a request like a servlet, but may allow the handling of the request to continue with other filters or servlets. A filter may perform an auxiliary task such as logging, performing specialized authentication checks, or annotating the request or response objects before calling the servlet. Filters allow you to compose request processing tasks from the deployment descriptor.</p>
+
+<p>A filter class implements the <code>javax.servlet.Filter</code> interface, including the <code>doFilter()</code> method. Here is an simple filter implementation that logs a message, and passes control down the chain, which may include other filters or a servlet, as described by the deployment descriptor:</p>
+
+<pre class="prettyprint lang-java">
+<code class="language-java">package mysite.server;
+
+    import java.io.IOException;
+    import java.util.logging.Logger;
+    import javax.servlet.Filter;
+    import javax.servlet.FilterChain;
+    import javax.servlet.FilterConfig;
+    import javax.servlet.ServletException;
+    import javax.servlet.ServletRequest;
+    import javax.servlet.ServletResponse;
+
+    public class LogFilterImpl implements Filter {
+
+    private FilterConfig filterConfig;
+    private static final Logger log = Logger.getLogger(LogFilterImpl.class.getName());
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain filterChain)
+    throws IOException, ServletException {
+    log.warning(&quot;Log filter processed a &quot; + getFilterConfig().getInitParameter(&quot;logType&quot;)
+    + &quot; request&quot;);
+
+    filterChain.doFilter(request, response);
+    }
+
+    public FilterConfig getFilterConfig() {
+    return filterConfig;
+    }
+
+    public void init(FilterConfig filterConfig) {
+    this.filterConfig = filterConfig;
+    }
+
+    public void destroy() {}
+
+    }
+</code>
+</pre>
+
+<p>Similar to servlets, you configure a filter in the deployment descriptor by declaring the filter with the <code>&lt;filter&gt;</code> element, then mapping it to a URL pattern with the <code>&lt;filter-mapping&gt;</code> element. You can also map filters directly to other servlets.</p>
+
+<p>The <code>&lt;filter&gt;</code> element contains a <code>&lt;filter-name&gt;</code>, <code>&lt;filter-class&gt;</code>, and optional <code>&lt;init-param&gt;</code> elements.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;filter&gt;
+    &lt;filter-name&gt;logSpecial&lt;/filter-name&gt;
+    &lt;filter-class&gt;mysite.server.LogFilterImpl&lt;/filter-class&gt;
+    &lt;init-param&gt;
+    &lt;param-name&gt;logType&lt;/param-name&gt;
+    &lt;param-value&gt;special&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;/filter&gt;</code>
+</pre>
+
+<p>The <code>&lt;filter-mapping&gt;</code> element contains a <code>&lt;filter-name&gt;</code> that matches the name of a declared filter, and either a <code>&lt;url-pattern&gt;</code> element for applying the filter to URLs, or a <code>&lt;servlet-name&gt;</code> element that matches the name of a declared servlet for applying the filter whenever the servlet is called.</p>
+
+<pre class="prettyprint lang-xml">
+<code class="language-xml">    &lt;!-- Log for all URLs ending in &quot;.special&quot; --&gt;
+    &lt;filter-mapping&gt;
+    &lt;filter-name&gt;logSpecial&lt;/filter-name&gt;
+    &lt;url-pattern&gt;*.special&lt;/url-pattern&gt;
+    &lt;/filter-mapping&gt;
+
+    &lt;!-- Log for all URLs that use the &quot;comingsoon&quot; servlet --&gt;
+    &lt;filter-mapping&gt;
+    &lt;filter-name&gt;logSpecial&lt;/filter-name&gt;
+    &lt;servlet-name&gt;comingsoon&lt;/servlet-name&gt;
+    &lt;/filter-mapping&gt;</code>
+</pre>
+
+<p class="note"><b>Note:</b> Filters are not invoked on static assets, even if the path matches a <code>filter-mapping</code> pattern. Static files are served directly to the browser.</p>
+
+<h2 id="Error_Handlers">Error Handlers</h2>
+
+<p>You can customize what the server sends to the user when an error occurs, using the deployment descriptor. The server can display an alternate page location when it's about to send a particular HTTP status code, or when a servlet raises a particular Java exception.</p>
+
+<p>The <code>&lt;error-page&gt;</code> element contains either an <code>&lt;error-code&gt;</code> element with an HTTP error code value (such as <code>500</code>), or an <code>&lt;exception-type&gt;</code> element with the class name of the expected exception (such as <code>java.io.IOException</code>). It also contains a <code>&lt;location&gt;</code> element containing the URL path of the resource to show when the error occurs.</p>
+
+<pre class="prettyprint">
+<code class="language-xml">    &lt;error-page&gt;
+    &lt;error-code&gt;500&lt;/error-code&gt;
+    &lt;location&gt;/errors/servererror.jsp&lt;/location&gt;
+    &lt;/error-page&gt;</code>
+</pre>
+
+<p class="note"><b>Note:</b> At present, you cannot configure custom error handlers for some error conditions. Specifically, you cannot customize the 404 response page when no servlet mapping is defined for a URL, the 403 quota error page, or the 500 server error page that appears after an App Engine internal error.</p>
+
+
+<h2 id="web_xml_Features_Not_Supported">web.xml Features Not Supported</h2>
+
+<p>The following web.xml features are not supported by App Engine:</p>
+<ul>
+    <li>App Engine supports the <code>&lt;load-on-startup&gt;</code> element for servlet declarations. However, the load actually occurs during the first request handled by the web server instance, not prior to it.</li>
+    <li>Some deployment descriptor elements can take a human readable display name, description and icon for use in IDEs. App Engine doesn't use these, and ignores them.</li>
+    <li>App Engine doesn't support JNDI environment variables (<code>&lt;env-entry&gt;</code>).</li>
+    <li>App Engine doesn't support EJB resources (<code>&lt;resource-ref&gt;</code>).</li>
+    <li>Notification of the destruction of servlets, servlet context, or filters is not supported.</li>
+    <li>The <code>&lt;distributable&gt;</code> element is ignored.</li>
+    <li>Servlet scheduling with <code>&lt;run-at&gt;</code> is not supported.</>
+</ul>
+
+
+</div>
+
+
+</div>
+
+<div id="gc-content-footer" class="nocontent">
+
+    <div id="gc-content-footer-feedback">
+
+        Оцените, насколько информация на этой странице была вам полезна:
+
+
+
+
+
+
+
+
+        <div class="devsite-rating-container ">
+            <div class="devsite-rating-stars">
+                <div data-rating-val="1" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                     class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                     data-label="Star Rating 1" track-type="feedback" track-name="rating"
+                     track-metadata-score="1" track-metadata-position="footer"></div>
+                <div data-rating-val="2" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                     class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                     data-label="Star Rating 2" track-type="feedback" track-name="rating"
+                     track-metadata-score="2" track-metadata-position="footer"></div>
+                <div data-rating-val="3" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                     class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                     data-label="Star Rating 3" track-type="feedback" track-name="rating"
+                     track-metadata-score="3" track-metadata-position="footer"></div>
+                <div data-rating-val="4" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                     class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                     data-label="Star Rating 4" track-type="feedback" track-name="rating"
+                     track-metadata-score="4" track-metadata-position="footer"></div>
+                <div data-rating-val="5" src="https://cloud.google.com/_static/a1c29df6f1/images/ic_star_outline_24px.svg"
+                     class="devsite-rating-star gc-analytics-event" data-category="Site-Wide Custom Events"
+                     data-label="Star Rating 5" track-type="feedback" track-name="rating"
+                     track-metadata-score="5" track-metadata-position="footer"></div>
+            </div>
+
+            <div class="devsite-rating-description">Оцените эту страницу</div>
+            <div class="devsite-rating-internal"><span class="devsite-rating-stats"></span></div>
+        </div>
+
+
+
+
+    </div>
+
+    <div id="gc-content-license">
+
+
+
+        <p>Except as otherwise noted, the content of this page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>. For details, see our <a href="https://cloud.google.com/site-policies">Site Policies</a>.</p>
+
+
+
+
+
+
+        <div id="site-licenses" class="maia-aux">
+            <p class="java">
+                Java is a registered trademark of Oracle and/or its affiliates.
+            </p>
+        </div>
+        <script>
+            devsite.ready(function() {
+                var jf = $('div[itemprop=articleBody]')
+                        .not('#maia-footer')
+                        .not(':hidden')
+                        .filter(':contains( Java ), :contains( Java,), :contains( Java.), :contains( Java-)');
+
+                if (jf.length > 0) {
+                    $('#site-licenses .java').css('display','block');
+                }
+            });
+        </script>
+
+
+    </div>
+
+
+
+    <div itemprop="datePublished" content="2015-09-15T18:21:13.675410" id="gc-content-last-updated">Обновлено Сентябрь 15, 2015</div>
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div id="maia-signature"></div>
+<div id="maia-footer">
+
+
+
+
+    <div id="maia-footer-local" class="nocontent">
+        <div class="maia-aux">
+            <nav class="menu-nav-wrapper">
+                <ul class="menu-nav">
+                    <li class="nav-cat products">
+                        <input type="checkbox" id="footer-nav-products">
+                        <label for="footer-nav-products"><h3>Products</h3></label>
+                        <ul>
+                            <li><a href="https://cloud.google.com/appengine/" class="tooltip" track-type="productsDoc" track-name="appengine" track-metadata-position="footer">App Engine
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Run your Python, Java, PHP and Go applications on a fully-managed Platform-as-a-Service (PaaS)
+        </span></a></li>
+
+                            <li><a href="https://cloud.google.com/compute/" class="tooltip" track-type="productsDoc" track-name="compute" track-metadata-position="footer">Compute Engine
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Run large-scale workloads on virtual machines hosted on Google's infrastructure
+        </span></a></li>
+
+                            <li><a href="https://cloud.google.com/container-engine/" class="tooltip" track-type="productsDoc" track-name="containerEngine" track-metadata-position="footer">Container Engine
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Run Docker containers on Google Cloud Platform, powered by Kubernetes
+        </span></a></li>
+
+                            <li><a href="https://cloud.google.com/bigquery/" class="tooltip" track-type="productsDoc" track-name="bigQuery" track-metadata-position="footer">BigQuery
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Run fast, SQL-like queries against multi-terabyte datasets in seconds
+        </span> </a></li>
+
+                            <li><a href="https://cloud.google.com/networking/" class="tooltip" track-type="productsDoc" track-name="networking" track-metadata-position="footer">Networking
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Google's network technology helps provide fast and consistent performance for your apps and services
+        </span>
+                            </a></li>
+                            <li><a href="https://cloud.google.com/storage/" class="tooltip" track-type="productsDoc" track-name="storage" track-metadata-position="footer">Storage
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Use a durable and highly available object storage service
+        </span>
+                            </a></li>
+
+                            <li><a href="https://cloud.google.com/sql/" class="tooltip" track-type="productsDoc" track-name="sql" track-metadata-position="footer">SQL
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Store and manage data using a fully-managed, relational MySQL database
+        </span>
+                            </a></li>
+
+                            <li><a href="https://cloud.google.com/datastore/" class="tooltip" track-type="productsDoc" track-name="datastore" track-metadata-position="footer">Datastore
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+           Use a managed, NoSQL, schemaless database for storing non-relational data
+        </span></a></li>
+
+                            <li><a href="https://cloud.google.com/dataflow/" class="tooltip" track-type="productsDoc" track-name="dataflow" track-metadata-position="footer">Dataflow
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          Build, deploy, and run data processing pipelines that scale to solve your key business challenges
+        </span></a></li>
+
+                            <li><a href="https://cloud.google.com/products/" track-type="productsDoc" track-name="more" track-metadata-position="footer">More...</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-cat">
+                        <input type="checkbox" id="footer-nav-learn">
+                        <label for="footer-nav-learn"><h3>Learn</h3></label>
+                        <ul>
+                            <li><a href="https://cloud.google.com/appengine/docs/java/gettingstarted/introduction" track-type="learn" track-name="appengine" track-metadata-position="footer">App Engine Tutorial</a></li>
+                            <li><a href="https://cloud.google.com/compute/docs/quickstart" track-type="learn" track-name="compute" track-metadata-position="footer">Compute Engine Tutorial</a></li>
+                            <li><a href="https://cloud.google.com/bigquery/web-ui-quickstart" track-type="learn" track-name="bigquery" track-metadata-position="footer">BigQuery Tutorial</a></li>
+                            <li><a href="https://cloud.google.com/docs/" track-type="learn" track-name="documentation" track-metadata-position="footer">Documentation</a></li>
+                            <li><a href="https://cloud.google.com/training/" track-type="learn" track-name="training" track-metadata-position="footer">Training</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-cat">
+                        <input type="checkbox" id="footer-nav-deploy">
+                        <label for="footer-nav-deploy"><h3>Deploy</h3></label>
+                        <ul>
+                            <li><a href="https://cloud.google.com/launcher/?q=lamp" class="tooltip" track-type="deployDoc" track-name="LAMP" track-metadata-position="footer">LAMP
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          The LAMP development stack combines the power of Debian Linux, Apache HTTP Server, MySQL, and PHP
+        </span></a></li>
+                            <li><a href="https://cloud.google.com/launcher/?q=mongodb" class="tooltip" track-type="deployDoc" track-name="mongoDB" track-metadata-position="footer">MongoDB
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          An open-source document database, and the leading NoSQL database
+        </span></a></li>
+                            <li><a href="https://cloud.google.com/launcher?q=hadoop" class="tooltip" track-type="deployDoc" track-name="hadoop" track-metadata-position="footer">Hadoop
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          A framework that allows for the distributed processing of large data sets across clusters of computers
+        </span></a></li>
+                            <li><a href="https://cloud.google.com/launcher/?q=mean" class="tooltip" track-type="deployDoc" track-name="mean" track-metadata-position="footer">MEAN
+        <span>
+          <div class="tooltip-box-arrow">&#9660;</div>
+          MongoDB, Express Node Framework, AngularJS, and NodeJS
+        </span></a></li>
+                            <li><a href="https://cloud.google.com/launcher/" track-type="deployDoc" track-name="more" track-metadata-position="footer">More...</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-cat">
+                        <input type="checkbox" id="footer-nav-resources">
+                        <label for="footer-nav-resources"><h3>Resources</h3></label>
+                        <ul>
+                            <li><a href="https://cloud.google.com/why-google/" track-type="resourcesDoc" track-name="whyGoogle" track-metadata-position="footer">Why Google</a></li>
+                            <li><a href="https://cloud.google.com/customers/" track-type="resourcesDoc" track-name="customers" track-metadata-position="footer">Customers</a></li>
+                            <li><a href="https://cloud.google.com/partners/" track-type="resourcesDoc" track-name="partners" track-metadata-position="footer">Partners</a></li>
+                            <li><a href="https://cloud.google.com/security/" track-type="resourcesDoc" track-name="security" track-metadata-position="footer">Security</a></li>
+                            <li><a href="https://cloud.google.com/security/compliance" track-type="resourcesDoc" track-name="compliance" track-metadata-position="footer">Compliance</a></li>
+                            <li><a href="https://cloud.google.com/about/locations/" track-type="resourcesDoc" track-name="datacenters" track-metadata-position="footer">Cloud Locations</a></li>
+                            <li><a href="https://cloud.google.com/support/" track-type="resourcesDoc" track-name="support" track-metadata-position="footer">Support</a></li>
+                            <li><a href="https://status.cloud.google.com/" track-type="resourcesDoc" track-name="systemStatus" track-metadata-position="footer">System Status</a></li>
+                            <li><a href="https://cloud.google.com/usability" track-type="resourcesUsability" track-name="usability" track-metadata-position="footer">UX Research</a></li>
+                            <li><a href="https://www.google.com/about/careers/search#t=sq&q=j&d=%2522google%2520cloud%2520platform%2522&li=10&j=%2522google%2520cloud%2520platform%2522" track-type="resourcesUsability" track-name="cloudJobs" track-metadata-position="footer">Jobs</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-cat">
+                        <input type="checkbox" id="footer-nav-pricing">
+                        <label for="footer-nav-pricing"><h3>Pricing</h3></label>
+                        <ul>
+                            <li><a href="https://cloud.google.com/pricing/" track-type="pricingDoc" track-name="pricing" track-metadata-position="footer">Pricing</a></li>
+                            <li><a href="https://cloud.google.com/products/calculator/" track-type="pricingDoc" track-name="calculator" track-metadata-position="footer">Calculator</a></li>
+                            <li><a href="https://cloud.google.com/pricing/philosophy/" track-type="pricingDoc" track-name="philosophy" track-metadata-position="footer">Philosophy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <br class="clear" />
+        </div>
+    </div>
+
+    <script>
+        new lfl.cloud.GlobalProductMenu();
+        cloud.forms.Tracking.addTracking();
+    </script>
+
+
+
+    <div id="maia-footer-global">
+
+        <div class="maia-locales">
+            <form action="/i18n/setlang/" method="post">
+                <input type="hidden" name="xsrf_token" value="oudP5G-iOWuTPtGBImRP7ioNZa8Upd-qk2HjHK7g6NA6MTQ2MTA3MTg5MTEyNDMxMA" />
+                <select name="language" onchange="this.form.submit(); return false;">
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                </select>
+            </form>
+        </div>
+
+
+        <div class="maia-aux">
+            <ul>
+                <li><a href="http://www.google.com/">Google</a></li>
+
+                <li><a href="https://cloud.google.com/terms/">Условия использования</a></li>
+
+                <li><a href="http://www.google.com/intl/en/privacy/">Политика конфиденциальности</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+</div>
+
+<script type="text/javascript" async="" defer="" src="//www.gstatic.com/feedback/api.js"></script>
+
+
+<script>
+    (function($) {
+        var cssHref = $('#screen-foot').attr('data-href');
+        $('#screen-foot').attr('href', cssHref);
+    })(jQuery);
+</script>
+
+
+<script id="jqueryui" src="https://cloud.google.com/_static/a1c29df6f1/js/jquery_ui-bundle.js"></script>
+
+<script type="text/javascript" src="https://cloud.google.com/_static2/a1c29df6f1/jsi18n/"></script>
+<script src="https://cloud.google.com/_static/a1c29df6f1/js/script_foot_closure__ru.js"></script>
+<script src="https://cloud.google.com/_static/a1c29df6f1/js/script_foot.js"></script>
+<script>
+    (function($) {
+        devsite.devsite.Init($, 'cloud',
+                '[]', '',
+                'ru', true,
+                'a1c29df6f1', 'alexey.pushkin2@gmail.com',
+                false, // Disable Copenhagen
+                {"098dafe57affddc137df300142652cfd": false, "aeabbb621a03102b5b95dbd63cd26e68": true, "6749dcb526ce9bde6993550c7d928d24": true, "ce556e0d44070ac33ad04f8fda535631": false, "00fe5bd02d47cd27e60084834f8b87c5": false}, '/appengine/docs/java/',
+                'https://cloud.google.com/');
+    })(jQuery);
+
+
+    devsite.localInit = function() {
+
+    };
+</script>
+
+
+
+
+
+<script type="text/javascript">
+    $('#setlang select').each(function() {
+        if (navigator.userAgent.match(/msie/i)) {
+            $(this).change(function() {
+                $('#setlang').submit();
+            });
+        } else {
+            $(this).kdSelect({'change': function() {
+                $('#setlang').submit();
+            }});
+        }
+    });
+</script>
+
+
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-5CVQBG"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5CVQBG');</script>
+<!-- End Google Tag Manager -->
+
+
+
+<script src="//www.google.com/js/maia.js"></script>
+
+<!-- Start dataLayer -->
+<script>
+    window['dataLayer'] = window['dataLayer'] || [];
+    dataLayer.push({
+        'event': 'trackExperiment',
+        'experimentType': 'cloud_q2_products_subnavigation',
+        'experimentPath': '/virtual/cloudQ2ProductSubnavigation/configureExperiment',
+        'variant':'1',
+
+        'hasNid': '1'
+    });
+</script>
+<!-- End dataLayer -->
+
+
+
+
+
+
+
+
+</div><!-- END DIV.MAIA-MAX -->
+<div class="devsite-site-mask"></div>
+</body>
+</html>
