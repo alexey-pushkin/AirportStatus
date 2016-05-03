@@ -28,6 +28,6 @@
   </description>
 
       <welcome-file-list>
-        <welcome-file>zzz.html</welcome-file>
+        <welcome-file>mypage.html</welcome-file>
     </welcome-file-list>
 </web-app>
