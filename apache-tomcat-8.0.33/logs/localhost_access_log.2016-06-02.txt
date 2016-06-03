@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:39:11 -0300] "GET /mypage.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:39:12 -0300] "GET /js/base.min.js HTTP/1.1" 404 1022
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:39:13 -0300] "GET /_s/getsuggestions?hl=ru&p=https%3A%2F%2Fcloud.google.com%2F&s=cloud&c=2 HTTP/1.1" 404 1028
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:39:13 -0300] "GET /_s/getsuggestions?hl=ru&s=cloud&c=1 HTTP/1.1" 404 1028
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:39:13 -0300] "GET /_s/getsuggestions?hl=ru&p=https%3A%2F%2Fcloud.google.com%2F&s=cloud&c=3 HTTP/1.1" 404 1028
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:50:09 -0300] "GET / HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:50:09 -0300] "GET /js/base.min.js HTTP/1.1" 404 1022
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:50:09 -0300] "GET /_s/getsuggestions?hl=ru&p=https%3A%2F%2Fcloud.google.com%2F&s=cloud&c=2 HTTP/1.1" 404 1028
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:50:09 -0300] "GET /_s/getsuggestions?hl=ru&p=https%3A%2F%2Fcloud.google.com%2F&s=cloud&c=3 HTTP/1.1" 404 1028
+0:0:0:0:0:0:0:1 - - [02/Jun/2016:11:50:09 -0300] "GET /_s/getsuggestions?hl=ru&s=cloud&c=1 HTTP/1.1" 404 1028
